@@ -1,14 +1,27 @@
-package persistence.entity;
+package com.peliculas.play.persistence.entity;
+
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class MovieEntity {
+@Entity
+@Table(name = "Platzy_Play")
+public class    MovieEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //para que vaya incrementando, nos asegura que el id nunca se va a repetir
+    private Long id;
+    @Column(nullable = false, length = 150, unique = true)
     private String titulo;
+    @Column(nullable = false, precision = 3)
     private Integer duracion;
+    @Column(nullable = false, length = 40)
     private String genero;
+    @Column(name = "fecha_estreno")
     private LocalDate fechaEstreno;
+    @Column(precision = 3, scale = 2)
     private BigDecimal clasificacion;
+    @Column(nullable = false, length = 1)
     private String estado;
 
     public String getTitulo() {
@@ -57,5 +70,13 @@ public class MovieEntity {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

@@ -1,5 +1,6 @@
-package com.peliculas.play;
+package com.peliculas.play.web.controller;
 
+import com.peliculas.play.domain.service.PlatziPlayAiService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
